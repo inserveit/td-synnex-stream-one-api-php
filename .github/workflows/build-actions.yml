@@ -1,0 +1,51 @@
+name: Unit tests and checkstyle
+on: [push]
+jobs:
+  phpunit:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['8.2', '8.3']
+        phpunit-versions: ['latest']
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '8.2'
+            phpunit-versions: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring
+          coverage: xdebug
+          tools: composer:v2, php-cs-fixer, phpunit:${{ matrix.phpunit-versions }}
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist
+
+      - name: Run PHPCS
+        run: ./vendor/bin/phpcs src tests -v --standard=PSR2
+
+      - name: Run Psalm
+        run: ./vendor/bin/psalm --show-info=true
+
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --level=5 src tests
+
+      - name: Run PHPUnit
+        run: ./vendor/bin/phpunit --coverage-text --colors
