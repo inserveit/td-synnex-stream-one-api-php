@@ -33,7 +33,7 @@ class Subscription
     protected ?string $subscriptionBillingTerm = null;
     protected ?string $subscriptionRenewStatus = null;
     protected ?string $billingCurrency = null;
-    protected ?float $customerCost = null;
+    protected int|float|null $customerCost = null;
     /**
      * @var BillingData[]|null
      */
@@ -253,9 +253,9 @@ class Subscription
     }
 
     /**
-     * @return float|null
+     * @return int|float|null
      */
-    public function getCustomerCost(): ?float
+    public function getCustomerCost(): int|float|null
     {
         return $this->customerCost;
     }
@@ -621,11 +621,11 @@ class Subscription
     }
 
     /**
-     * @param float|null $customerCost
+     * @param int|float|null $customerCost
      *
      * @return $this
      */
-    public function setCustomerCost(?float $customerCost): self
+    public function setCustomerCost(int|float|null $customerCost): self
     {
         $this->customerCost = $customerCost;
 
