@@ -14,7 +14,7 @@ class BillingData
     protected ?string $skuName = null;
     protected ?string $billingCycle = null;
     protected ?float $sellerCost = null;
-    protected ?float $customerCost = null;
+    protected int|float|null $customerCost = null;
     protected ?float $margin = null;
     protected ?int $usageQuantity = null;
     protected ?string $currency = null;
@@ -76,9 +76,9 @@ class BillingData
     }
 
     /**
-     * @return float|null
+     * @return int|float|null
      */
-    public function getCustomerCost(): ?float
+    public function getCustomerCost(): int|float|null
     {
         return $this->customerCost;
     }
@@ -192,11 +192,11 @@ class BillingData
     }
 
     /**
-     * @param float|null $customerCost
+     * @param int|float|null $customerCost
      *
      * @return $this
      */
-    public function setCustomerCost(?float $customerCost): self
+    public function setCustomerCost(int|float|null $customerCost): self
     {
         $this->customerCost = $customerCost;
 
