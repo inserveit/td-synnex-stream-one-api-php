@@ -16,7 +16,7 @@ class BillingData
     protected ?float $sellerCost = null;
     protected int|float|null $customerCost = null;
     protected ?float $margin = null;
-    protected ?int $usageQuantity = null;
+    protected int|float|null $usageQuantity = null;
     protected ?string $currency = null;
 
     /**
@@ -92,9 +92,9 @@ class BillingData
     }
 
     /**
-     * @return int|null
+     * @return int|float|null
      */
-    public function getUsageQuantity(): ?int
+    public function getUsageQuantity(): int|float|null
     {
         return $this->usageQuantity;
     }
@@ -216,11 +216,11 @@ class BillingData
     }
 
     /**
-     * @param int|null $usageQuantity
+     * @param int|float|null $usageQuantity
      *
      * @return $this
      */
-    public function setUsageQuantity(?int $usageQuantity): self
+    public function setUsageQuantity(int|float|null $usageQuantity): self
     {
         $this->usageQuantity = $usageQuantity;
 
