@@ -43,6 +43,11 @@ class Subscription
     protected ?string $customerName = null;
     protected ?string $partnerName = null;
     protected ?string $lastUpdatedDate = null;
+    protected int|float|null $price = null;
+    protected int|float|null $cost = null;
+    protected int|float|null $margin = null;
+    protected int|float|null $msrp = null;
+    protected ?string $currency = null;
 
     /**
      * @return string|null
@@ -306,6 +311,46 @@ class Subscription
     public function getLastUpdatedDate(): ?string
     {
         return $this->lastUpdatedDate;
+    }
+
+    /**
+     * @return float|int|null
+     */
+    public function getPrice(): float|int|null
+    {
+        return $this->price;
+    }
+
+    /**
+     * @return float|int|null
+     */
+    public function getCost(): float|int|null
+    {
+        return $this->cost;
+    }
+
+    /**
+     * @return float|int|null
+     */
+    public function getMargin(): float|int|null
+    {
+        return $this->margin;
+    }
+
+    /**
+     * @return float|int|null
+     */
+    public function getMsrp(): float|int|null
+    {
+        return $this->msrp;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
     }
 
     /**
@@ -698,6 +743,66 @@ class Subscription
     public function setLastUpdatedDate(?string $lastUpdatedDate): self
     {
         $this->lastUpdatedDate = $lastUpdatedDate;
+
+        return $this;
+    }
+
+    /**
+     * @param float|int|null $price
+     *
+     * @return $this
+     */
+    public function setPrice(float|int|null $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @param float|int|null $cost
+     *
+     * @return $this
+     */
+    public function setCost(float|int|null $cost): self
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * @param float|int|null $margin
+     *
+     * @return $this
+     */
+    public function setMargin(float|int|null $margin): self
+    {
+        $this->margin = $margin;
+
+        return $this;
+    }
+
+    /**
+     * @param float|int|null $msrp
+     *
+     * @return $this
+     */
+    public function setMsrp(float|int|null $msrp): self
+    {
+        $this->msrp = $msrp;
+
+        return $this;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return $this
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
 
         return $this;
     }
