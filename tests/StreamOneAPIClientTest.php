@@ -15,7 +15,7 @@ use Symfony\Component\Serializer\Exception\ExceptionInterface;
 /**
  *
  */
-class StreamOneAPIClientTest extends TestCase
+final class StreamOneAPIClientTest extends TestCase
 {
     /**
      * @return void

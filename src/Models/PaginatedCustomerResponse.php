@@ -5,7 +5,7 @@ namespace Inserve\StreamOneAPI\Models;
 /**
  *
  */
-class PaginatedCustomerResponse
+final class PaginatedCustomerResponse
 {
     /**
      * @var Customer[]|null

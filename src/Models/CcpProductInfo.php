@@ -5,7 +5,7 @@ namespace Inserve\StreamOneAPI\Models;
 /**
  *
  */
-class CcpProductInfo
+final class CcpProductInfo
 {
     protected ?string $productId = null;
     protected ?string $productDisplayName = null;

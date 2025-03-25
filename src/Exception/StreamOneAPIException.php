@@ -8,7 +8,7 @@ use Inserve\StreamOneAPI\Models\ErrorResponse;
 /**
  *
  */
-class StreamOneAPIException extends Exception
+final class StreamOneAPIException extends Exception
 {
     /**
      * @param string             $message

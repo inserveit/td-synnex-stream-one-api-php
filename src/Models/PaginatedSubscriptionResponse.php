@@ -5,7 +5,7 @@ namespace Inserve\StreamOneAPI\Models;
 /**
  *
  */
-class PaginatedSubscriptionResponse
+final class PaginatedSubscriptionResponse
 {
     /**
      * @var Subscription[]|null

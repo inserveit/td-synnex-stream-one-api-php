@@ -7,7 +7,7 @@ use SensitiveParameter;
 /**
  *
  */
-class AccessToken
+final class AccessToken
 {
     protected ?string $accessToken = null;
     protected ?string $refreshToken = null;

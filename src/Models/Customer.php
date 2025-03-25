@@ -5,7 +5,7 @@ namespace Inserve\StreamOneAPI\Models;
 /**
  *
  */
-class Customer
+final class Customer
 {
     protected ?string $name = null;
     protected ?string $customerOrganization = null;

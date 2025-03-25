@@ -5,7 +5,7 @@ namespace Inserve\StreamOneAPI\Models;
 /**
  *
  */
-class ErrorResponse
+final class ErrorResponse
 {
     protected ?string $error = null;
     protected ?string $message = null;

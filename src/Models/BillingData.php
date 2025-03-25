@@ -5,7 +5,7 @@ namespace Inserve\StreamOneAPI\Models;
 /**
  *
  */
-class BillingData
+final class BillingData
 {
     protected ?string $id = null;
     protected ?string $accountId = null;
